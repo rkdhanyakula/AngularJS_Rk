@@ -2,7 +2,6 @@
 <html lang="en" ng-app="myApp" ng-controller="myCtrl">
 
 
-
 <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../resources/style.css">
 
@@ -10,7 +9,7 @@
 
 <div>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
+    <h2>Angular Dynamic Application Demo</h2>
     <md-content layout-padding>
 
         <div class="container">
@@ -38,7 +37,7 @@
                         <label>Finally, Message First Part
                             <span class="orangeText" ng-bind="messagePartOne"></span> + Message Second Part
                             <span class="orangeText" ng-bind="messagePartTwo"></span> is :
-                            <span class="orangeText" ng-bind="messagePartOne + messagexPartTwo"></span></label>
+                            <span class="orangeText" ng-bind="messagePartOne + messagePartTwo"></span></label>
                     </md-input-container>
                 </div>
             </div>
@@ -141,41 +140,5 @@
 <script src="../bower_components/angular-material/angular-material.min.js"></script>
 <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
 <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-
-<script>
-
-    var myApp = angular.module('myApp', []);
-    myApp.controller('myCtrl', myCtrl);
-    myCtrl.$inject = ['$rootScope'];
-
-    function myCtrl($rootScope) {
-        $rootScope.addition = function (calcNumOne, calcNumTwo) {
-            $rootScope.operatorName = '+';
-            $rootScope.calcVale = calcNumOne + calcNumTwo;
-
-        }
-
-        $rootScope.subtraction = function (calcNumOne, calcNumTwo) {
-            $rootScope.operatorName = '-';
-            $rootScope.calcVale = calcNumOne - calcNumTwo;
-
-        }
-
-        $rootScope.multiply = function (calcNumOne, calcNumTwo) {
-            $rootScope.operatorName = '*';
-            $rootScope.calcVale = calcNumOne * calcNumTwo;
-
-        }
-
-        $rootScope.division = function (calcNumOne, calcNumTwo) {
-            $rootScope.operatorName = '/';
-            $rootScope.calcVale = calcNumOne / calcNumTwo;
-
-        }
-    };
-
-
-</script>
-
-
+<script src="../resources/app-script.js"></script>
 </html>
