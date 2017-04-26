@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+
+
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../resources/style.css">
+
+
+
+<div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <h2>Angular Dynamic Application Demo</h2>
+    <md-content layout-padding>
+
+        <div class="container">
+            <div class="row form-group">
+                <h1></span>Adding Two Input Text Values </h1>
+                <hr>
+                <div class="col-md-6">
+                    <md-input-container>
+                        <label>This is Message First Part = </label>
+                        <input type="text" ng-model="messagePartOne" required md-maxlength="2" class="form-control">
+                    </md-input-container>
+                </div>
+                <div class="col-md-6">
+
+                    <md-input-container>
+                        <label>This is Message Second Part = </label>
+                        <input type="text" ng-model="messagePartTwo" required md-maxlength="2"
+                               class="form-control"></input>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <md-input-container>
+                        <label>Finally, Message First Part
+                            <span class="orangeText" ng-bind="messagePartOne"></span> + Message Second Part
+                            <span class="orangeText" ng-bind="messagePartTwo"></span> is :
+                            <span class="orangeText" ng-bind="messagePartOne + messagePartTwo"></span></label>
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+
+    </md-content>
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <md-content layout-padding>
+
+        <div class="container">
+            <div class="row form-group">
+                <h1>Adding Two Numbers </h1>
+                <hr>
+                <div class="col-md-6">
+                    <md-input-container>
+                        <label>First Number = </label>
+                        <input type="number" ng-model="numberOne" required md-maxlength="2" class="form-control">
+                    </md-input-container>
+                </div>
+                <div class="col-md-6">
+
+                    <md-input-container>
+                        <label>Second Number = </label>
+                        <input type="number" ng-model="numberTwo" required md-maxlength="2"
+                               class="form-control">
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <label>Finally, The Total of First Number
+                        <span class="orangeText" ng-bind="numberOne"></span> + Second Number
+                        <span class="orangeText" ng-bind="numberTwo"></span> is :
+                        <span class="orangeText" ng-bind="numberOne + numberTwo"></span></label>
+
+                </div>
+            </div>
+        </div>
+
+    </md-content>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+    <md-content>
+        <form>
+            <div class="container">
+                <div class="row">
+                    <h1>Sooooooo Simple Calculator</h1>
+                    <div class="col-md-6">
+                        <md-input-container>
+                            <label>First Number</label>
+                            <input type="number" ng-model="calcNumOne" class="form-control" required="required">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Second Number</label>
+                            <input type="number" ng-model="calcNumTwo" class="form-control" required="required">
+                        </md-input-container>
+                    </div>
+                    <div class="col-md-6">
+
+                        <span class="btn customBtn heavyText fixedWidth80px"
+                              ng-click="addition(calcNumOne,calcNumTwo)">+
+                        </span>
+                        <span class="btn customBtn heavyText fixedWidth80px"
+                              ng-click="subtraction(calcNumOne,calcNumTwo)">
+                            -
+                        </span>
+                        <span class="btn customBtn heavyText fixedWidth80px"
+                              ng-click="multiply(calcNumOne,calcNumTwo)"> *
+                        </span>
+                        <span class="btn customBtn heavyText fixedWidth80px"
+                              ng-click="division(calcNumOne,calcNumTwo)">/
+                        </span>
+                        <br><br>
+                        <label>Output Value <span class="orangeText">{{ calcNumOne}}</span> {{
+                            operatorName }} <span class="orangeText">{{calcNumTwo}}</span>
+                            = <span class="orangeText">{{
+                    calcVale}}</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"></div>
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+    </md-content>
+</div>
+
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-material/angular-material.min.js"></script>
+<script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="../resources/app-script.js"></script>
+</html>

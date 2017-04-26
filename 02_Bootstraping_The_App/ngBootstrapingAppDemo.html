@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myAppForBootstrapingExample">
+
+<h1 ng-bind="10+10"></h1>
+<h1 ng-bind="10-10"></h1>
+<h1 ng-bind="10*10"></h1>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script>
+//    Below code .. Used to Bootstrap the application for static apps,where as declaration is only ng-app
+//  angular.bootstrap(document);
+
+var myAppForBootstrapingExample = angular.module("myAppForBootstrapingExample", []);
+
+myAppForBootstrapingExample.controller('myAppForBootstrapingExampleCtrl', myAppForBootstrapingExampleCtrl);
+
+myAppForBootstrapingExampleCtrl.$inject = ['$scope'];
+
+angular.bootstrap(document, ['myAppForBootstrapingExample'])
+
+</script>
+
+</html>

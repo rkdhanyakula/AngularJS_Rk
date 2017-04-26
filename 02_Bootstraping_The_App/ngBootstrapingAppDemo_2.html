@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<div id="div_one" ng-app="ngBootstrapingAppDemo_2" ng-controller="ngBootstrapingAppDemo_2Ctrl">
+    <h1>{{div_one_var}}</h1>
+
+</div>
+
+<div id="div_two" ng-controller="ngBootstrapingAppDemo_2_1Ctrl">
+    <h1>{{div_two_var}}</h1>
+</div>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+
+<script>
+    var ngBootstrapingAppDemo_2 = angular.module('ngBootstrapingAppDemo_2', []);
+
+    ngBootstrapingAppDemo_2.controller('ngBootstrapingAppDemo_2Ctrl', ngBootstrapingAppDemo_2Ctrl);
+    ngBootstrapingAppDemo_2Ctrl.$inject = ['$scope'];
+
+    function ngBootstrapingAppDemo_2Ctrl($scope) {
+        $scope.div_one_var = 'Msg from div_one Layer';
+    };
+
+    ngBootstrapingAppDemo_2.controller('ngBootstrapingAppDemo_2_1Ctrl', ngBootstrapingAppDemo_2_1Ctrl);
+    ngBootstrapingAppDemo_2_1Ctrl.$inject = ['$scope'];
+
+    function ngBootstrapingAppDemo_2_1Ctrl($scope) {
+        $scope.div_two_var = 'Msg from DOM element based on ID with bootstraping';
+    };
+
+    angular.bootstrap((document.getElementById("div_two")), ['ngBootstrapingAppDemo_2']);
+
+
+</script>
+
+
+</html>
+

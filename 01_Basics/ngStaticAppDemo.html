@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<style>
+    h1 {
+        color: #cccc33;
+        font-size: 22px;
+
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    }
+
+    .marginTop10px {
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<h1 style="">Angular Static Application - Demo </h1>
+<fieldset class="marginTop10px">
+    <legend><h1>Welcome Message</h1>
+
+        <p ng-model="Welcome">Welcome to Angular JS</p>
+        <p> {{message}}</p>
+    </legend>
+</fieldset>
+
+
+<fieldset class="marginTop10px">
+
+    <legend><h1>Here is a basic addition with out having controller :</h1>
+    </legend>
+
+
+    <input type="number" ng-model="messagePartOne"></input>
+
+    <input type="number" ng-model="messagePartTwo"> </p>
+
+    <h1 ng-bind="messagePartOne + messagePartTwo"></h1>
+
+
+</fieldset>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+
+</html>

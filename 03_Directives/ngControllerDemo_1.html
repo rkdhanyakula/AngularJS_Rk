@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngControllerDemoAppp">
+
+<link rel="stylesheet" href="../resources/style.css">
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+
+<div class="container">
+    <div class="row" ng-controller="ngControllerDemoApp_1_Controller">
+        <h1> $scope & $rootScope : Local Variables & Global Variables </h1>
+
+        <p>{{myfun()}}</p>
+    </div>
+</div>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script>
+    var ngControllerDemoAppp = angular.module('ngControllerDemoAppp', []);
+
+    ngControllerDemoAppp.controller('ngControllerDemoApp_1_Controller', ngControllerDemoApp_1_Controller);
+    ngControllerDemoApp_1_Controller.$inject = ['$rootScope', '$scope'];
+
+    function ngControllerDemoApp_1_Controller($rootScope, $scope) {
+
+
+        $scope.var_one = "Var_one_value";
+        $scope.var_two = "var_two_value";
+        $scope.var_three = "var_three_value";
+
+        $rootScope.myfun = function () {
+            return $scope.var_one + ' <==> ' + $scope.var_two + ' <==> ' + $scope.var_three;
+        }
+    };
+
+
+</script>
+
+
+</html>

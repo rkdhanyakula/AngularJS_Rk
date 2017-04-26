@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dblClickDemoApp" ng-controller="DblClickDemoAppController">
+<link rel="stylesheet" href="../resources/style.css">
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+
+<div class="container">
+    <div class="row">
+
+        <h1> ng-repeat In a List</h1>
+        <ul>
+            <li ng-repeat="x in data">
+                <span ng-bind="x.id"></span>
+                <p ng-bind="x.name"></p>
+            </li>
+        </ul>
+        <h1> ng-repeat in a Select Dropdown</h1>
+        <select ng-options="x.id as x.name for x in data" ng-model="selectedValue" class="form-control">
+            <option value="">--Please Select--</option>
+        </select>
+        <p>Selected Item Is : {{selectedValue}}</p>
+        <h1> ngDblClick : Examples</h1>
+        <p>When you Double Click, You will be alarted by the Above Slected Dropdown Value, As I am calling the above
+            ng-model as my alert data.</p>
+        <button class="btn btn-danger" ng-dblclick="dblClickFunc(selectedValue)">Double Click Me</button>
+    </div>
+</div>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script>
+
+    var dblClickDemoApp = angular.module('dblClickDemoApp', []);
+    dblClickDemoApp.controller('DblClickDemoAppController', DblClickDemoAppController);
+    DblClickDemoAppController.$inject = ['$scope', '$rootScope'];
+
+    function DblClickDemoAppController($rootScope, $scope) {
+
+        $scope.data = [
+            {id: 1, 'name': 'Option 1'},
+            {id: 2, 'name': 'Option 2'},
+            {id: 3, 'name': 'Option 3'}
+        ];
+
+        $scope.dblClickFunc = function (data) {
+            alert(data);
+
+        }
+    };
+
+
+</script>
+</html>

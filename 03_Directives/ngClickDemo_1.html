@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngClickDemo_1App">
+
+
+<link rel="stylesheet" href="../resources/style.css">
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+
+
+<div class="container">
+
+    <div class="row">
+        <h2>ng-Click: Count change on-click</h2>
+        <div ng-controller="ngClickDemo_1App_Controller">
+            <button class="btn btn-info" ng-click="count = count + 1">+</button>
+            <button class="btn btn-danger">{{count}}</button>
+            <button class="btn btn-info" ng-click="count = count - 1">-</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h2>Implementing a function in ng-click</h2>
+        <div ng-controller="ngClickDemo_1App_2Controller">
+            <button class="btn btn-danger" ng-click="clickMe()">Click Me and Check the Console</button>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row" ng-controller="ngClickDemo_1App_3Controller">
+        <h1>Printing Data in Console &amp; Table from Input Fields & 2 way Data Binding</h1>
+        <form>
+            <div class="form-group">
+                <label for="userName">User Name </label>
+                <input type="text" name="userName" ng-model="uname" class="form-control"></input>
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Password </label>
+                <input type="password" name="userPassword" ng-model="upwd" class="form-control"></input>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-warning" ng-click="login({'uname' : uname, 'upwd' : upwd})">
+                    <i class="glyphicon glyphicon-log-in"></i> Login
+                </button>
+            </div>
+        </form>
+        <table class="table table-responsive table-bordered">
+            <tr class="grayBg">
+                <th>User Name</th>
+                <th>Password</th>
+            </tr>
+            <tr class="grayBg">
+                <th colspan="2"><i class="glyphicon glyphicon-hand-down fa-1x"></i> Data coming from ng-model</th>
+            </tr>
+            <tr>
+                <td>
+                    {{uname}}
+                </td>
+                <td>
+                    {{upwd}}
+                </td>
+            </tr>
+            <tr class="grayBg">
+                <th colspan="2">
+                    <i class="glyphicon glyphicon-hand-down fa-1x"></i> Data coming from Controller. Once you click on
+                    Login, Then the data will appear below.
+                </th>
+            </tr>
+            <tr>
+
+                <td>{{loginData.uname}}</td>
+                <td>{{loginData.upwd}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div class="row">
+        <h2> $rootScope : I am printing this data from other the input fields. Because I used rootScope, It supplies the Data to the total page without having any declaration of any controller.</h2>
+        <p>{{loginData}}</p>
+    </div>
+    <hr>
+
+
+
+
+</div>
+<script src="../bower_components/angular/angular.min.js"></script>
+
+
+<script>
+
+    var ngClickDemo_1App = angular.module('ngClickDemo_1App', []);
+
+    ngClickDemo_1App.controller('ngClickDemo_1App_Controller', ngClickDemo_1App_Controller);
+    ngClickDemo_1App_Controller.$inject = ['$scope'];
+
+    function ngClickDemo_1App_Controller($scope) {
+        $scope.count = 0;
+    }
+
+    ngClickDemo_1App.controller('ngClickDemo_1App_2Controller', ngClickDemo_1App_2Controller)
+    ngClickDemo_1App_2Controller.$inject = ['$scope'];
+
+    function ngClickDemo_1App_2Controller($scope) {
+        $scope.clickMe = function () {
+            console.log('You Clicked Me !!!');
+        }
+    };
+
+    ngClickDemo_1App.controller('ngClickDemo_1App_3Controller', ngClickDemo_1App_3Controller);
+    ngClickDemo_1App_3Controller.$inject = ['$scope','$rootScope'];
+
+    function ngClickDemo_1App_3Controller($scope, $rootScope) {
+        $rootScope.login = function (data) {
+            console.log(data);
+            $rootScope.loginData = data;
+        }
+    };
+
+
+
+
+</script>
+</html>
